@@ -21,9 +21,11 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-
+        <h2> issue 1: search HOC </h2>
         <SearchInput />
+        <h2> issue 2: Request Component</h2>
         <RequestDom />
+        <h2> issue 3: Error Warper </h2>
         <ErrorWarper errorMessage="Error!">
           <ErrorComponent />
         </ErrorWarper>
