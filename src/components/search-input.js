@@ -14,7 +14,7 @@
   }
 */
 
-import React from 'react';
+import React from 'react'
 
 class EchoOnSearch extends React.Component {
   onSearch (value) { // value is from input in SearchComponent
@@ -23,6 +23,11 @@ class EchoOnSearch extends React.Component {
   render() { return '' } // used to pass component validate
 }
 
+/**
+ * decorate search component by html interaction 
+ * 
+ * @param {*} WrappedComponent 
+ */
 function SearchComponent(WrappedComponent) {
   return class SearchInput extends React.Component{
     constructor(props) {

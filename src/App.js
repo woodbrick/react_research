@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SearchInput from './components/search-input'
+import RequestDom from './components/url-request'
+import ErrorWarper from './components/error-warper'
+
+function ErrorComponent() {
+  return 'ErrorComponent'
+  // throw new Error()
+}
 
 class App extends Component {
   render() {
@@ -16,6 +23,10 @@ class App extends Component {
         </p>
 
         <SearchInput />
+        <RequestDom />
+        <ErrorWarper errorMessage="Error!">
+          <ErrorComponent />
+        </ErrorWarper>
       </div>
     );
   }
