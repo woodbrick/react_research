@@ -16,15 +16,12 @@ class ErrorWarper extends React.Component {
     super(props);
     this.state = { hasError: false };
   }
-
   componentDidCatch(error, info) {
     this.setState({ hasError: true });
     console.error(error, info);
   }
-
   render() {
     if (this.state.hasError) {
-      // You can render any custom fallback UI
       return <h1>{this.props.errorMessage}</h1>;
     }
     return this.props.children;

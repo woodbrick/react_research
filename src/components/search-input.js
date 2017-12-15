@@ -16,7 +16,7 @@
 
 import React from 'react'
 
-class EchoOnSearch extends React.Component {
+class LogSearch extends React.Component {
   onSearch (value) { // value is from input in SearchComponent
     console.log(value)
   }
@@ -34,30 +34,26 @@ function SearchComponent(WrappedComponent) {
       super(props)
       this.onSearch = this.onSearch.bind(this)
       this.handleKeyDown = this.handleKeyDown.bind(this)
-      this.handleConfirm = this.handleConfirm.bind(this)
     }
     handleKeyDown(e) {
-      e.key === 'Enter' && this.onSearch(this.refs.textInput.value)
+      e.key === 'Enter' && this.onSearch()
     }
-    handleConfirm() {
-      this.onSearch(this.refs.textInput.value)
-    }
-    onSearch(value) {
+    onSearch() {
+      let value = this.refs.textInput ? this.refs.textInput.value : ''
       this.refs.wrappedComponent && this.refs.wrappedComponent.onSearch(value)
     }
     render() {
       return (
         <div className="search-box">
           <input ref="textInput" onKeyPress={this.handleKeyDown} />
-          <button onClick={this.handleConfirm}>Search</button>
+          <button onClick={this.onSearch}>Search</button>
           <WrappedComponent ref="wrappedComponent" />
         </div>
       )
-    }
-  }
+    } // render
+  } // class SearchInput
 }
 
-const SearchBar = SearchComponent(EchoOnSearch)
+const SearchBar = SearchComponent(LogSearch)
 
 export default SearchBar
-

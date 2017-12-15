@@ -22,7 +22,6 @@ class Request extends React.Component {
     }
     this.loadUrl = this.loadUrl.bind(this)
   }
-
   componentDidMount() {
     setTimeout(this.loadUrl, 1000)
   }
@@ -33,8 +32,7 @@ class Request extends React.Component {
         this.setState({ data: response })
       }
     })
-  }
-
+  } // loadUrl
   render() {
     return this.props.children(JSON.stringify(this.state.data))
   }
@@ -49,7 +47,7 @@ class UrlRequestDom extends React.Component{
         </Request>
       </div>
     )
-  }
+  } // render
 }
 
 export default UrlRequestDom
